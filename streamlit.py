@@ -7,6 +7,8 @@ import plotly.graph_objects as go
 import cv2
 import os
 import random
+import gdown
+import zipfile
 
 # ==========================================
 # 1. CONFIGURASI PAGE & PATH DATASET
@@ -22,6 +24,15 @@ st.set_page_config(
 # Jika dikosongkan atau salah, sistem akan otomatis pakai "Mode Demo"
 LOCAL_DATASET_PATH = "NormalVSAbnormal"
 
+FILE_ID = "1l4O_6q3ZFtUfTQkg9PEQ95Jb8WZymdru"
+url = f"https://drive.google.com/uc?id={FILE_ID}"
+
+if not os.path.exists(LOCAL_DATASET_PATH):
+    gdown.download(url, "dataset.zip", quiet=False)
+
+    with zipfile.ZipFile("dataset.zip", 'r') as zip_ref:
+        zip_ref.extractall(".")
+        
 # ==========================================
 # 2. CUSTOM CSS (TAMPILAN PREMIUM)
 # ==========================================
