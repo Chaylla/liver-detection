@@ -376,6 +376,3 @@ elif st.session_state.get('page', '🏠 Beranda') == "📚 Mode Latihan":
                 """, unsafe_allow_html=True)
             
             st.markdown("</div>", unsafe_allow_html=True)
-    else:
-        # Pesan jika belum ada soal
-        st.info("Silakan klik tombol **'Ambil Soal Acak'** di atas")
